@@ -34,7 +34,7 @@ with col1:
     if st.button("🔍 Recommend Recipes"):
         with st.spinner("Looking for delicious ideas... 🍳"):
             try:
-                res = requests.post("http://127.0.0.1:8000/recommend", json={"ingredients": ingredients})
+                res = requests.post("https://recipe-bot-1.onrender.com/recommend", json={"ingredients": ingredients})
                 data = res.json()
 
                 if data:
@@ -60,7 +60,7 @@ with col2:
         if lines:
             with st.spinner("Crunching the nutrition data... 🍎"):
                 try:
-                    res = requests.post("http://127.0.0.1:8000/calorie", json={"ingredients": lines})
+                    res = requests.post("https://recipe-bot-1.onrender.com/calorie", json={"ingredients": lines})
                     result = res.json()
 
                     if res.status_code == 200 and "error" not in result:
